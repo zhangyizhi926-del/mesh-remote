@@ -1,10 +1,10 @@
-# Mesh Remote — Low-latency remote desktop for campus networks, with self-hosted relay support
+# Mesh Remote — Remote desktop with configurable layered routing
 
 [简体中文](README.md) · **English**
 
-Mesh Remote combines **EasyTier encrypted networking**, **Apollo or Sunshine on a Windows host**, and **Moonlight on the client**. Laptops, phones, and tablets connect through a fixed virtual address. The project is designed for campus networks, shared Wi-Fi, and networks behind multiple layers of NAT. Devices can try a direct path and fall back to a private relay on a Linux cloud server.
+Mesh Remote is designed for complex networks such as campus Wi-Fi, shared networks, and networks behind multiple layers of NAT. **Remote desktop traffic travels over the encrypted EasyTier mesh, either directly between devices or through a self-hosted private relay. Proxy and DNS traffic keep their own policies.** Configure the mesh subnet, relay address and ports, and TUN exclusions for your environment. Apollo or Sunshine streams from the Windows host, and Moonlight connects to its virtual address from a laptop, phone, or tablet.
 
-1. **Reach a host across dorms, classrooms, and labs.** Wireless client isolation, VLAN boundaries, or restrictive NAT can prevent LAN discovery and inbound connections. Both devices can initiate connections to the same reachable private node. Add the host's virtual IP manually in Moonlight to pair. When a direct path is available, stream traffic can travel between devices directly. When it fails, the relay can carry the stream using the same virtual IP.
+1. **Connect across client isolation, subnets, and restrictive NAT.** For example, when connecting from a dorm to a lab workstation, campus Wi-Fi isolation or VLAN boundaries can prevent LAN discovery and inbound connections. If both devices can reach the same private relay, they can join the mesh through it. Add the host's virtual IP manually in Moonlight to pair.
 2. **Tune streaming to the link and hardware.** Apollo and Sunshine can use the host's hardware encoder, and compatible Moonlight clients can decode in hardware. Apollo's virtual display can match the client's resolution and aspect ratio. Start at 1080p and 60 FPS, then increase quality as the devices and link allow. Use EasyTier route information and Moonlight statistics to identify packet loss, latency, and bitrate limits.
 3. **Work alongside existing proxy and DNS settings.** The EasyTier template keeps the system DNS settings, and the Windows client can bind to a physical interface. With a TUN proxy such as Clash Verge Rev, exclude the mesh subnet and relay address where needed. Scope incoming streaming rules to the mesh and keep the host's management UI on localhost.
 
