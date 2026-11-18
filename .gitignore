@@ -1,0 +1,35 @@
+# Credentials, deployment state, backups and logs
+/.local/
+/backups/
+/easytier/network-config.json
+/easytier/windows.toml
+/relay/relay.toml
+/relay/quota.conf
+.env
+.env.*
+*.key
+*.crt
+*.pem
+*.pfx
+*.p12
+*.secret
+*.bak
+*.log
+sunshine_state.json
+credentials/
+id_rsa*
+id_ed25519*
+
+# Local binaries and generated artifacts
+/.build/
+/easytier/win/
+/easytier/linux/
+/easytier/.tmp/
+prebuilt/
+*.exe
+*.msi
+*.zip
+*.tgz
+*.tar.gz
+.DS_Store
+Thumbs.db

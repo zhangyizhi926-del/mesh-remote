@@ -1,0 +1,11 @@
+[Unit]
+Description=Check the Mesh Remote relay outbound traffic budget
+Wants=vnstat.service
+After=vnstat.service
+ConditionPathExists=/etc/mesh-remote/quota.conf
+
+[Service]
+Type=oneshot
+StateDirectory=mesh-remote-quota
+StateDirectoryMode=0750
+ExecStart=/usr/local/sbin/mesh-remote-check-quota

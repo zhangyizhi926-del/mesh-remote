@@ -1,0 +1,29 @@
+[Unit]
+Description=Private EasyTier relay for Mesh Remote
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/var/lib/mesh-remote-quota/stopped
+
+[Service]
+DynamicUser=yes
+LoadCredential=relay.toml:/etc/mesh-remote/relay.toml
+ExecStartPre=/bin/sh -c 'grep -qF "<REPLACE_WITH_A_UNIQUE_SECRET>" "$$CREDENTIALS_DIRECTORY/relay.toml"; test "$$?" -eq 1'
+ExecStartPre=/usr/local/bin/easytier-core --check-config --disable-env-parsing -c ${CREDENTIALS_DIRECTORY}/relay.toml
+ExecStart=/usr/local/bin/easytier-core --disable-env-parsing -r 127.0.0.1:15888 -c ${CREDENTIALS_DIRECTORY}/relay.toml
+# The upstream parser can include configuration values in error output.
+StandardOutput=null
+StandardError=null
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+{
+  // Merge only derpMap into your existing tailnet policy.
+  "derpMap": {
+    "Regions": {
+      "901": {
+        "RegionID": 901,
+        "RegionCode": "private-relay",
+        "RegionName": "Private Relay",
+        "Nodes": [
+          {
+            "Name": "901a",
+            "RegionID": 901,
+            "HostName": "derp.example.com",
+            "DERPPort": 443,
+            "STUNPort": 3478
+          }
+        ]
+      }
+    }
+  }
+}

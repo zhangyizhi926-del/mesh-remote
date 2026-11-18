@@ -1,0 +1,9 @@
+# Set the interface and thresholds to match your provider's billing.
+# Thresholds in decimal bytes (example: 80 GB warning, 90 GB stop).
+IFACE=eth0
+WARN_BYTES=80000000000
+STOP_BYTES=90000000000
+
+# Optional TX usage before vnStat began measuring this billing month.
+BASELINE_MONTH=""
+BASELINE_TX_BYTES=0

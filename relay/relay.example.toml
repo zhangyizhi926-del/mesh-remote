@@ -1,0 +1,12 @@
+# Copy to a private file and use the same network identity on every device.
+hostname = "mesh-relay"
+listeners = ["tcp://0.0.0.0:33445", "udp://0.0.0.0:33446"]
+
+[network_identity]
+network_name = "mesh-remote-example"
+network_secret = "<REPLACE_WITH_A_UNIQUE_SECRET>"
+
+[flags]
+no_tun = true
+private_mode = true
+accept_dns = false

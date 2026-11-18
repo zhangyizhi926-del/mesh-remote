@@ -1,0 +1,21 @@
+# Copy to .local/windows.toml and fill in your own network details.
+hostname = "windows-host"
+ipv4 = "10.77.0.10/24"
+dhcp = false
+listeners = ["tcp://0.0.0.0:11010", "udp://0.0.0.0:11010"]
+
+[network_identity]
+network_name = "mesh-remote-example"
+network_secret = "<REPLACE_WITH_A_UNIQUE_SECRET>"
+
+# With no cloud relay, remove both peer entries and point the client at this host.
+[[peer]]
+uri = "tcp://relay.example.com:33445"
+
+[[peer]]
+uri = "udp://relay.example.com:33446"
+
+[flags]
+accept_dns = false
+bind_device = true
+latency_first = true
