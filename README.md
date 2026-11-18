@@ -1,4 +1,4 @@
-# Mesh Remote — 面向复杂网络的组网与远程桌面
+# Mesh Remote — 校园网低延迟远控，支持自建中继
 
 **简体中文** · [English](README.en.md)
 

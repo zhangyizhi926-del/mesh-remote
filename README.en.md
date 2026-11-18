@@ -1,4 +1,4 @@
-# Mesh Remote — Mesh networking and remote desktop for restrictive networks
+# Mesh Remote — Low-latency remote desktop for campus networks, with self-hosted relay support
 
 [简体中文](README.md) · **English**
 
